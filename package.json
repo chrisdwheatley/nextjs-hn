@@ -1,0 +1,22 @@
+{
+  "name": "nextjs-hn",
+  "version": "0.1.0",
+  "description": "Hacker News Progressive Web App using Next.js",
+  "author": "Chris Draycott-Wheatley",
+  "license": "MIT",
+  "scripts": {
+    "dev": "node index.js",
+    "build": "NODE_ENV=production next build",
+    "start": "NODE_ENV=production node index.js"
+  },
+  "dependencies": {
+    "isomorphic-fetch": "^2.2.1",
+    "next": "^2.0.1",
+    "next-routes": "^1.0.24",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2"
+  },
+  "devDependencies": {
+    "prettier": "^0.22.0"
+  }
+}
