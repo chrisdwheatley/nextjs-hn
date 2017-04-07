@@ -5,6 +5,7 @@
   "author": "Chris Draycott-Wheatley",
   "license": "MIT",
   "scripts": {
+    "lint": "prettier pages/*.js components/*.js *.js --write",
     "dev": "node index.js",
     "build": "NODE_ENV=production next build",
     "start": "NODE_ENV=production node index.js"

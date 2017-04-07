@@ -1,44 +1,17 @@
 import fetch from "isomorphic-fetch";
 import { Link } from "../routes";
 import Navigation from "../components/navigation";
+import ItemMeta from "../components/item-meta";
 
 const Listing = ({ data }) => (
   <div>
     <Navigation />
     <ul>
-      {data.map(({
-        comments_count,
-        id,
-        points,
-        time_ago,
-        title,
-        url,
-        user
-      }, index) => (
-        <li key={id}>
+      {data.map((item, index) => (
+        <li key={item.id}>
           {index + 1}
           {" "}
-          <a href={url}>{title}</a>
-          {" "}
-          <span>
-            {user &&
-              <span>
-                {points}
-                {" "}
-                points by
-                {" "}
-                <Link route="user" params={{ name: user }}><a>{user}</a></Link>
-              </span>}
-            {" "}
-            {time_ago}
-            {user &&
-              <span>
-                {" "}|{" "}
-                <Link prefetch route="comments" params={{ id }}>
-                  <a>{comments_count} comments</a>
-                </Link>
-              </span>}
-          </span>
+          <ItemMeta {...item} />
         </li>
       ))}
     </ul>

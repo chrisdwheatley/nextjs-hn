@@ -1,6 +1,7 @@
 import fetch from "isomorphic-fetch";
 import Link from "next/link";
 import Navigation from "../components/navigation";
+import ItemMeta from "../components/item-meta";
 
 function commentThread(comments) {
   const thread = [];
@@ -24,33 +25,12 @@ function commentThread(comments) {
 }
 
 const Comments = ({ data }) => {
-  const {
-    comments_count,
-    id,
-    points,
-    time_ago,
-    title,
-    user
-  } = data;
   return (
     <div>
       <Navigation />
       <div>
-        {data.title}
-        {" "}
-        <span>
-          {points}
-          {" "}
-          points by
-          {" "}
-          <Link route="user" params={{ name: user }}><a>{user}</a></Link>
-          {" "}
-          {time_ago}
-          {" "}
-          |
-          {" "}
-          {comments_count} comments
-        </span> <ul>{commentThread(data.comments)}</ul>
+        <ItemMeta {...data} />
+        <ul>{commentThread(data.comments)}</ul>
       </div>
     </div>
   );
