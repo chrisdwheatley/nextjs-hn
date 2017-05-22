@@ -1,3 +1,4 @@
+import React from "react";
 import fetch from "isomorphic-fetch";
 import Link from "next/link";
 import Navigation from "../components/navigation";

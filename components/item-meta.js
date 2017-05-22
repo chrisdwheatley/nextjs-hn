@@ -1,3 +1,4 @@
+import React from "react";
 import { Link } from "../routes";
 
 export default ({ url, title, user, points, time_ago, id, comments_count }) => (
@@ -6,18 +7,15 @@ export default ({ url, title, user, points, time_ago, id, comments_count }) => (
     {" "}
     {user &&
       <span>
-        {points}
-        {" "}
-        points by
-        {" "}
-        <Link route="user" params={{ name: user }}><a>{user}</a></Link>
+        {points} points by <Link route="user" params={{ name: user }}>
+          <a>{user}</a>
+        </Link>
       </span>}
     {" "}
     {time_ago}
     {user &&
       <span>
-        {" "}|{" "}
-        <Link prefetch route="comments" params={{ id }}>
+        {" "}| <Link prefetch route="comments" params={{ id }}>
           <a>{comments_count} comments</a>
         </Link>
       </span>}
