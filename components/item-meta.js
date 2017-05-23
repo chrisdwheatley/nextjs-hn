@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "../routes";
 
 export default ({ url, title, user, points, time_ago, id, comments_count }) => (
-  <span>
+  <span style={{ lineHeight: "1.5em" }}>
     <a href={url}>{title}</a>
     {" "}
     {user &&

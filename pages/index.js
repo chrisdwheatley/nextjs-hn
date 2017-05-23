@@ -3,6 +3,7 @@ import React from "react";
 import { Link } from "../routes";
 import Navigation from "../components/navigation";
 import ItemMeta from "../components/item-meta";
+import GlobalStyles from "../components/global-styles";
 
 export default class extends React.Component {
   constructor() {
@@ -49,22 +50,15 @@ export default class extends React.Component {
       items = Array(30).fill().map((item, index) => {
         return (
           <li key={index + 1}>
-            <span className="placeholder" />
-            <div className="placeholder-2" />
+            <span className="placeholder" style={{ lineHeight: "1.5em" }}>
+              This is some placeholder text which doesn't get displayed, there's a better way to do this though surely!? surely!!!??? don't call me shirley
+            </span>
             <style jsx>
               {
                 `
           .placeholder {
-            float: left;
-            width: 100%;
-            height: 1em;
             background: #efefef;
-          }
-          .placeholder-2 {
-            width: 60%;
-            margin-bottom: 2px;
-            height: 1em;
-            background: #efefef;
+            color: transparent;
           }
         `
               }
@@ -84,6 +78,7 @@ export default class extends React.Component {
         <ol>
           {items}
         </ol>
+        <GlobalStyles />
       </div>
     );
   }

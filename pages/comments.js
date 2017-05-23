@@ -3,6 +3,7 @@ import fetch from "isomorphic-fetch";
 import Link from "next/link";
 import Navigation from "../components/navigation";
 import ItemMeta from "../components/item-meta";
+import GlobalStyles from "../components/global-styles";
 
 function commentThread(comments) {
   const thread = [];
@@ -33,6 +34,7 @@ const Comments = ({ data }) => {
         <ItemMeta {...data} />
         <ul>{commentThread(data.comments)}</ul>
       </div>
+      <GlobalStyles />
     </div>
   );
 };

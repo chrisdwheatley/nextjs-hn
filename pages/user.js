@@ -2,6 +2,7 @@ import React from "react";
 import fetch from "isomorphic-fetch";
 import Link from "next/link";
 import Navigation from "../components/navigation";
+import GlobalStyles from "../components/global-styles";
 
 const User = ({ data: { about, created, id, karma } }) => (
   <div>
@@ -10,6 +11,7 @@ const User = ({ data: { about, created, id, karma } }) => (
     <div>created: {created}</div>
     <div>karma: {karma}</div>
     <div>about: <span dangerouslySetInnerHTML={{ __html: about }} /></div>
+    <GlobalStyles />
   </div>
 );
 
