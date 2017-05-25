@@ -1,9 +1,9 @@
 import React from "react";
 import fetch from "isomorphic-fetch";
 import Link from "next/link";
-import Navigation from "../components/navigation";
+import Head from "../components/head";
 import ItemMeta from "../components/item-meta";
-import GlobalStyles from "../components/global-styles";
+import Navigation from "../components/navigation";
 
 function commentThread(comments) {
   const thread = [];
@@ -28,14 +28,14 @@ function commentThread(comments) {
 
 const Comments = ({ data }) => {
   return (
-    <div>
+    <main className="mw7 center sans-serif">
+      <Head />
       <Navigation />
       <div>
         <ItemMeta {...data} />
         <ul>{commentThread(data.comments)}</ul>
       </div>
-      <GlobalStyles />
-    </div>
+    </main>
   );
 };
 

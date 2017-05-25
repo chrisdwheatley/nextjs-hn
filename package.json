@@ -1,13 +1,14 @@
 {
   "name": "nextjs-hn",
   "version": "0.1.0",
-  "description": "Hacker News Progressive Web App using Next.js",
+  "description": "A Hacker News Progressive Web App built using Next.js",
   "author": "Chris Draycott-Wheatley",
   "license": "MIT",
   "scripts": {
-    "lint": "prettier pages/*.js components/*.js *.js --write",
-    "dev": "node index.js",
     "build": "NODE_ENV=production next build",
+    "dev": "npm run lint && npm run build && npm run start",
+    "lint": "prettier pages/*.js components/*.js *.js --write",
+    "postinstall": "cp ./node_modules/tachyons/css/tachyons.min.css ./static/tachyons.min.css",
     "start": "NODE_ENV=production node index.js"
   },
   "dependencies": {
@@ -17,7 +18,8 @@
     "preact": "^8.1.0",
     "preact-compat": "^3.16.0",
     "react": "^15.4.2",
-    "react-dom": "^15.4.2"
+    "react-dom": "^15.4.2",
+    "tachyons": "^4.7.4"
   },
   "devDependencies": {
     "prettier": "^0.22.0",

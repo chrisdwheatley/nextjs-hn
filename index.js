@@ -10,7 +10,7 @@ const pagesHandler = routes.getRequestHandler(app);
 function staticHandler(req, res) {
   const parsedUrl = parse(req.url, true);
   const rootStaticFiles = ["/service-worker.js"];
-  if (parsedUrl.pathname === '/favicon.ico') {
+  if (parsedUrl.pathname === "/favicon.ico") {
     const filePath = join(__dirname, "static", parsedUrl.pathname);
     app.serveStatic(req, res, filePath);
   }

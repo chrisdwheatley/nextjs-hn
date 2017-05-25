@@ -1,18 +1,18 @@
 import React from "react";
 import fetch from "isomorphic-fetch";
 import Link from "next/link";
+import Head from "../components/head";
 import Navigation from "../components/navigation";
-import GlobalStyles from "../components/global-styles";
 
 const User = ({ data: { about, created, id, karma } }) => (
-  <div>
+  <main className="mw7 center sans-serif">
+    <Head />
     <Navigation />
     <div>user: {id}</div>
     <div>created: {created}</div>
     <div>karma: {karma}</div>
     <div>about: <span dangerouslySetInnerHTML={{ __html: about }} /></div>
-    <GlobalStyles />
-  </div>
+  </main>
 );
 
 User.getInitialProps = async ({ query: { name } }) => {

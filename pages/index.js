@@ -1,9 +1,8 @@
 import fetch from "isomorphic-fetch";
 import React from "react";
-import { Link } from "../routes";
-import Navigation from "../components/navigation";
+import Head from "../components/head";
 import ItemMeta from "../components/item-meta";
-import GlobalStyles from "../components/global-styles";
+import Navigation from "../components/navigation";
 
 export default class extends React.Component {
   constructor() {
@@ -44,42 +43,14 @@ export default class extends React.Component {
   }
 
   render() {
-    let items;
-
-    if (!this.state.dataLoaded) {
-      items = Array(30).fill().map((item, index) => {
-        return (
-          <li key={index + 1}>
-            <span className="placeholder" style={{ lineHeight: "1.5em" }}>
-              This is some placeholder text which doesn't get displayed, there's a better way to do this though surely!? surely!!!??? don't call me shirley
-            </span>
-            <style jsx>
-              {
-                `
-          .placeholder {
-            background: #efefef;
-            color: transparent;
-          }
-        `
-              }
-            </style>
-          </li>
-        );
-      });
-    } else {
-      items = this.props.data.map((item, index) => (
-        <li key={item.id}><ItemMeta {...item} /></li>
-      ));
-    }
-
     return (
-      <div>
+      <main className="mw7 center sans-serif">
+        <Head />
         <Navigation />
-        <ol>
-          {items}
-        </ol>
-        <GlobalStyles />
-      </div>
+        <section className="fl w-100 pa2">
+          {this.props.data.map((item, index) => <ItemMeta {...item} />)}
+        </section>
+      </main>
     );
   }
 }

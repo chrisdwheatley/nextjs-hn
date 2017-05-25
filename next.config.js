@@ -9,7 +9,7 @@ module.exports = {
         staticFileGlobs: ["static/**/*"],
         runtimeCaching: [
           {
-            handler: "cacheFirst",
+            handler: "networkFirst",
             urlPattern: /^https?.*/
           }
         ]
