@@ -6,9 +6,8 @@
   "license": "MIT",
   "scripts": {
     "build": "NODE_ENV=production next build",
-    "dev": "npm run lint && npm run build && npm run start",
+    "dev": "npm run lint && node purify && npm run build && npm run start",
     "lint": "prettier pages/*.js components/*.js *.js --write",
-    "postinstall": "cp ./node_modules/tachyons/css/tachyons.min.css ./static/tachyons.min.css",
     "start": "NODE_ENV=production node index.js"
   },
   "dependencies": {
@@ -17,6 +16,7 @@
     "next-routes": "^1.0.24",
     "preact": "^8.1.0",
     "preact-compat": "^3.16.0",
+    "purify-css": "^1.2.2",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "tachyons": "^4.7.4"
