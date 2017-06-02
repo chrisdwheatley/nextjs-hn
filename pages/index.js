@@ -1,54 +1,49 @@
-import fetch from "isomorphic-fetch";
 import React from "react";
+import { get } from "../app/fetch";
 import Head from "../components/head";
 import ItemMeta from "../components/item-meta";
 import Navigation from "../components/navigation";
 
 export default class extends React.Component {
-  constructor() {
-    super();
-
-    this.state = {
-      dataLoaded: false
-    };
-  }
   static async getInitialProps({ query: { type } }) {
     const allowed = ["news", "new", "show", "ask", "jobs"];
+
     if (!type || !allowed.includes(type)) {
       type = "news";
     }
+
     if (type === "new") {
       type = "newest";
     }
 
-    const res = await fetch(`https://node-hnapi.herokuapp.com/${type}`);
-    const json = await res.json();
+    const json = await get({ type });
     return { data: json };
   }
 
   async componentDidMount() {
-    this.setState({ dataLoaded: true });
     if ("serviceWorker" in navigator) {
       navigator.serviceWorker
         .register("/service-worker.js")
         .then(registration => {
-          // Successful registration
-          console.log("success");
+          console.log("service worker registration successful");
         })
         .catch(err => {
-          // Failed registration, service worker won’t be installed
-          console.log("fail");
+          console.warn("service worker registration failed");
         });
     }
   }
 
   render() {
     return (
-      <main className="mw7 center sans-serif">
+      <main className="sans-serif">
         <Head />
-        <Navigation />
-        <section className="fl w-100 pa2">
-          {this.props.data.map((item, index) => <ItemMeta {...item} />)}
+        <section className="center bg-dark-blue mh4">
+          <Navigation />
+        </section>
+        <section className="w-100 center mw7 mh4">
+          {this.props.data.map((item, index) => (
+            <ItemMeta key={item.id} {...item} />
+          ))}
         </section>
       </main>
     );

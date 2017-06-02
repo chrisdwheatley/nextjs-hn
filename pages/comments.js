@@ -1,6 +1,6 @@
 import React from "react";
-import fetch from "isomorphic-fetch";
-import Link from "next/link";
+import { Link } from "../routes";
+import { get } from "../app/fetch";
 import Head from "../components/head";
 import ItemMeta from "../components/item-meta";
 import Navigation from "../components/navigation";
@@ -8,18 +8,49 @@ import Navigation from "../components/navigation";
 function commentThread(comments) {
   const thread = [];
 
-  comments.map(item => {
+  comments.map(({ id, level, user, time_ago, content, comments }) => {
     thread.push(
-      <div key={item.id} style={{ marginLeft: `${item.level}0px` }}>
+      <div key={id} style={{ marginLeft: `${level * 2}0px` }}>
         <li>
-          {item.user} {item.time_ago}
-          <span dangerouslySetInnerHTML={{ __html: item.content }} />
+          <span className="mt3 f6 fw4 mb0 black-60">
+            <Link route="user" params={{ name: user || "pg" }}>
+              <a className="link dim pv1 pr1 black-60">{user}</a>
+            </Link>
+            {" "}
+            {time_ago}
+          </span>
+          <div
+            className="f5 lh-copy black mb4"
+            dangerouslySetInnerHTML={{ __html: content }}
+          />
         </li>
+        <style global jsx>
+          {
+            `
+          p {
+            margin-top: 0;
+          }
+          p a, p a:visited {
+            opacity: 1;
+            padding: .4em .2em .4em .2em;
+            text-decoration: none;
+            transition: color .15s ease-in;
+          }
+          p a:focus {
+            outline: 1px dotted currentColor;
+          }
+          p a:hover, p a:focus {
+            opacity: .5;
+            transition: opacity .15s ease-in;
+          }
+        `
+          }
+        </style>
       </div>
     );
 
-    if (item.comments && item.comments.length) {
-      thread.push(commentThread(item.comments));
+    if (comments && comments.length) {
+      thread.push(commentThread(comments));
     }
   });
 
@@ -28,20 +59,21 @@ function commentThread(comments) {
 
 const Comments = ({ data }) => {
   return (
-    <main className="mw7 center sans-serif">
+    <main className="sans-serif">
       <Head />
-      <Navigation />
-      <div>
+      <section className="center bg-dark-blue mh4">
+        <Navigation />
+      </section>
+      <section className="w-100 center mw7 mh4">
         <ItemMeta {...data} />
-        <ul>{commentThread(data.comments)}</ul>
-      </div>
+        <ul className="list pl3 mr3">{commentThread(data.comments)}</ul>
+      </section>
     </main>
   );
 };
 
 Comments.getInitialProps = async ({ query: { id } }) => {
-  const res = await fetch(`https://node-hnapi.herokuapp.com/item/${id}`);
-  const json = await res.json();
+  const json = await get({ id });
   return { data: json };
 };
 

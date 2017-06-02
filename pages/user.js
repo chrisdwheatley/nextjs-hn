@@ -1,26 +1,41 @@
 import React from "react";
-import fetch from "isomorphic-fetch";
 import Link from "next/link";
+import { get } from "../app/fetch";
 import Head from "../components/head";
 import Navigation from "../components/navigation";
 
 const User = ({ data: { about, created, id, karma } }) => (
-  <main className="mw7 center sans-serif">
+  <main className="sans-serif">
     <Head />
-    <Navigation />
-    <div>user: {id}</div>
-    <div>created: {created}</div>
-    <div>karma: {karma}</div>
-    <div>about: <span dangerouslySetInnerHTML={{ __html: about }} /></div>
+    <section className="center bg-dark-blue mh4">
+      <Navigation />
+    </section>
+    <section className="center mw7 mh4 pa3 lh-title">
+      <div className="dt w-100 pv1">
+        <span className="dtc w-20 black-60">Username: </span>
+        <span className="dtc w-80">{id}</span>
+      </div>
+      <div className="dt w-100 pv1">
+        <span className="dtc w-20 black-60">Created: </span>
+        <span className="dtc w-80">{created}</span>
+      </div>
+      <div className="dt w-100 pv1">
+        <span className="dtc w-20 black-60">Karma: </span>
+        <span className="dtc w-80">{karma}</span>
+      </div>
+      <div className="dt w-100 pv1">
+        <span className="dtc w-20 black-60">About: </span>
+        <span
+          className="dtc w-80"
+          dangerouslySetInnerHTML={{ __html: about }}
+        />
+      </div>
+    </section>
   </main>
 );
 
 User.getInitialProps = async ({ query: { name } }) => {
-  const res = await fetch(`https://node-hnapi.herokuapp.com/user/${name}`);
-  const json = await res.json();
-  if (json.error) {
-    throw new Error(json.error);
-  }
+  const json = await get({ name });
   return { data: json };
 };
 

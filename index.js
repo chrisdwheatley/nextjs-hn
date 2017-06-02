@@ -1,10 +1,18 @@
 const { createServer } = require("http");
 const { parse } = require("url");
 const { join } = require("path");
+const moduleAlias = require("module-alias");
+const dev = process.env.NODE_ENV !== "production";
+
+if (!dev) {
+  moduleAlias.addAlias("react", "preact-compat");
+  moduleAlias.addAlias("react-dom", "preact-compat");
+}
+
 const next = require("next");
 const routes = require("./routes");
 
-const app = next({ dev: process.env.NODE_ENV !== "production" });
+const app = next({ dev });
 const pagesHandler = routes.getRequestHandler(app);
 
 function staticHandler(req, res) {
@@ -24,5 +32,5 @@ function staticHandler(req, res) {
 }
 
 app.prepare().then(() => {
-  createServer(staticHandler).listen(3000);
+  createServer(staticHandler).listen(process.env.PORT || 3000);
 });

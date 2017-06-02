@@ -5,25 +5,25 @@
   "author": "Chris Draycott-Wheatley",
   "license": "MIT",
   "scripts": {
-    "build": "NODE_ENV=production next build",
-    "dev": "npm run lint && node purify && npm run build && npm run start",
-    "lint": "prettier pages/*.js components/*.js *.js --write",
-    "start": "NODE_ENV=production node index.js"
+    "build": "node purify && next build",
+    "dev": "npm run lint && cp ./node_modules/tachyons/css/tachyons.css ./static/tachyons.min.css && node index",
+    "lint": "prettier pages/*.js components/*.js app/*.js *.js --write",
+    "start": "NODE_ENV=production node index"
   },
   "dependencies": {
-    "isomorphic-fetch": "^2.2.1",
-    "next": "^2.3.1",
+    "module-alias": "^2.0.0",
+    "next": "^3.0.0-beta8",
     "next-routes": "^1.0.24",
     "preact": "^8.1.0",
     "preact-compat": "^3.16.0",
-    "purify-css": "^1.2.2",
-    "react": "^15.4.2",
-    "react-dom": "^15.4.2",
-    "tachyons": "^4.7.4"
-  },
-  "devDependencies": {
+    "send": "^0.15.3",
+    "isomorphic-fetch": "^2.2.1",
     "prettier": "^0.22.0",
+    "purify-css": "^1.2.2",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
     "sw-precache": "^5.1.0",
-    "sw-precache-webpack-plugin": "^0.9.1"
+    "sw-precache-webpack-plugin": "^0.9.1",
+    "tachyons": "^4.7.4"
   }
 }
