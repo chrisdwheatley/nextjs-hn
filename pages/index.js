@@ -5,19 +5,12 @@ import ItemMeta from "../components/item-meta";
 import Navigation from "../components/navigation";
 
 export default class extends React.Component {
-  static async getInitialProps({ query: { type } }) {
-    const allowed = ["news", "new", "show", "ask", "jobs"];
-
-    if (!type || !allowed.includes(type)) {
-      type = "news";
-    }
-
-    if (type === "new") {
-      type = "newest";
-    }
-
+  static async getInitialProps({ query: { type = "news" } }) {
     const json = await get({ type });
-    return { data: json };
+    if (type === "news") {
+      type = "home";
+    }
+    return { data: json, type };
   }
 
   async componentDidMount() {
@@ -37,9 +30,7 @@ export default class extends React.Component {
     return (
       <main className="sans-serif">
         <Head />
-        <section className="center bg-dark-blue mh4">
-          <Navigation />
-        </section>
+        <Navigation current={this.props.type} />
         <section className="w-100 center mw7 mh4">
           {this.props.data.map((item, index) => (
             <ItemMeta key={item.id} {...item} />

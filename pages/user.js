@@ -7,9 +7,7 @@ import Navigation from "../components/navigation";
 const User = ({ data: { about, created, id, karma } }) => (
   <main className="sans-serif">
     <Head />
-    <section className="center bg-dark-blue mh4">
-      <Navigation />
-    </section>
+    <Navigation />
     <section className="center mw7 mh4 pa3 lh-title">
       <div className="dt w-100 pv1">
         <span className="dtc w-20 black-60">Username: </span>

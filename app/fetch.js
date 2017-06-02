@@ -15,7 +15,13 @@ function set(key, value) {
   cache.set(key, value);
 }
 
-export async function get({ type = "new", id, name }) {
+export async function get({ type = "news", id, name }) {
+  const allowed = ["news", "new", "show", "ask", "jobs"];
+
+  if (type === "new") {
+    type = "newest";
+  }
+
   const endpointBase = `https://node-hnapi.herokuapp.com/`;
   let endpointPath = type;
 
