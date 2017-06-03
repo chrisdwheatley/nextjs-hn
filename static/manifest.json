@@ -1,0 +1,16 @@
+{
+  "name": "nextjs-hn-pwa",
+  "short_name": "nextjshnpwa",
+  "description": "A Hacker News Progressive Web App built using Next.js",
+  "icons": [
+    {
+      "src": "/static/favicon.png?v=bOvnl93lWn",
+      "sizes": "1024x1024",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#ff80cc",
+  "background_color": "#fff",
+  "start_url": "/",
+  "display": "standalone"
+}

@@ -10,16 +10,16 @@ export default (
           {title}
         </h2>
         <div className="mt2 mb3 f7 f6-ns fw4 mb0 black-60">
-          {time_ago} by {user} ({points} points)
+          {time_ago} {user && <span>by {user} ({points} points)</span>}
         </div>
       </a>
-      <Link prefetch route="comments" params={{ id }}>
+      {user && <Link prefetch route="comments" params={{ id }}>
         <a className="dtc center link grow v-mid pr1 pr3-ns w-10">
           <svg
             className="fr pr2"
             xmlns="http://www.w3.org/2000/svg"
-            width="30"
-            viewBox="0 0 30 30"
+            width="25"
+            viewBox="0 0 25 25"
             transform="scale(1.75)"
           >
             <path
@@ -27,16 +27,16 @@ export default (
             />
             <text
               x="12"
-              y="9"
+              y="10"
               textAnchor="middle"
-              fontSize="9"
+              fontSize="8"
               alignmentBaseline="central"
             >
               {comments_count}
             </text>
           </svg>
         </a>
-      </Link>
+      </Link>}
     </div>
   </article>
 );
