@@ -5,18 +5,18 @@ export default (
 ) => (
   <article>
     <div className="dt w-100 bb b--black-10">
-      <a className="link dtc dim pt2 pl3" href={url}>
-        <h1 className="fw4 lh-title mv0 black baskerville">
+      <a className="link dtc dim pt2 pl2 pl3-ns w-50 w-65-m w-90-l" href={url}>
+        <h2 className="f4 f3-ns f2-l fw4 lh-title mv0 black baskerville">
           {title}
-        </h1>
-        <div className="mt2 mb3 f6 fw4 mb0 black-60">
+        </h2>
+        <div className="mt2 mb3 f7 f6-ns fw4 mb0 black-60">
           {time_ago} by {user} ({points} points)
         </div>
       </a>
       <Link prefetch route="comments" params={{ id }}>
-        <a className="dtc link grow v-mid pr3 w-10">
+        <a className="dtc center link grow v-mid pr1 pr3-ns w-10">
           <svg
-            className="pv3 fr"
+            className="fr pr2"
             xmlns="http://www.w3.org/2000/svg"
             width="30"
             viewBox="0 0 30 30"
@@ -29,7 +29,7 @@ export default (
               x="12"
               y="9"
               textAnchor="middle"
-              fontSize="10"
+              fontSize="9"
               alignmentBaseline="central"
             >
               {comments_count}

@@ -18,7 +18,7 @@ export default ({ current }) => {
             >
               <a
                 className={
-                  `${current === item ? "pink" : "near-white dim"} link f5 dib ph3 pv4 fw3`
+                  `${current === item ? "pink" : "near-white dim"} link f6 dib ph2 ph3-ns pv4 fw3`
                 }
               >
                 {item.charAt(0).toUpperCase() + item.slice(1)}

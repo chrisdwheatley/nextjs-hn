@@ -8,23 +8,23 @@ const User = ({ data: { about, created, id, karma } }) => (
   <main className="sans-serif">
     <Head />
     <Navigation />
-    <section className="center mw7 mh4 pa3 lh-title">
+    <section className="center mw7 mh4 pa2 pa3-ns lh-title">
       <div className="dt w-100 pv1">
-        <span className="dtc w-20 black-60">Username: </span>
-        <span className="dtc w-80">{id}</span>
+        <span className="dtc w-30 w-20-ns black-60">Username: </span>
+        <span className="dtc w-70 w-80-ns">{id}</span>
       </div>
       <div className="dt w-100 pv1">
-        <span className="dtc w-20 black-60">Created: </span>
-        <span className="dtc w-80">{created}</span>
+        <span className="dtc w-30 w-20-ns black-60">Created: </span>
+        <span className="dtc w-70 w-80-ns">{created}</span>
       </div>
       <div className="dt w-100 pv1">
-        <span className="dtc w-20 black-60">Karma: </span>
-        <span className="dtc w-80">{karma}</span>
+        <span className="dtc w-30 w-20-ns black-60">Karma: </span>
+        <span className="dtc w-70 w-80-ns">{karma}</span>
       </div>
       <div className="dt w-100 pv1">
-        <span className="dtc w-20 black-60">About: </span>
+        <span className="dtc w-30 w-20-ns black-60">About: </span>
         <span
-          className="dtc w-80"
+          className="dtc w-70 w-80-ns"
           dangerouslySetInnerHTML={{ __html: about }}
         />
       </div>

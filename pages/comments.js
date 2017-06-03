@@ -10,7 +10,11 @@ function commentThread(comments) {
 
   comments.map(({ id, level, user, time_ago, content, comments }) => {
     thread.push(
-      <div key={id} style={{ marginLeft: `${level * 2}0px` }} className="bb b--black-10 mb3">
+      <div
+        key={id}
+        style={{ marginLeft: `${level * 2}0px` }}
+        className="bb b--black-10 mb3"
+      >
         <li>
           <span className="mt3 f6 fw4 mb0 black-60">
             <Link route="user" params={{ name: user || "pg" }}>
@@ -64,7 +68,7 @@ const Comments = ({ data }) => {
       <Navigation />
       <section className="w-100 center mw7 mh4">
         <ItemMeta {...data} />
-        <ul className="list pl3 mr3">{commentThread(data.comments)}</ul>
+        <ul className="list pl2 pl3-ns mr3">{commentThread(data.comments)}</ul>
       </section>
     </main>
   );
