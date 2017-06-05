@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "../routes";
 import { get } from "../app/fetch";
-import Head from "../components/head";
 import ItemMeta from "../components/item-meta";
 import Navigation from "../components/navigation";
 
@@ -63,8 +62,7 @@ function commentThread(comments) {
 
 const Comments = ({ data }) => {
   return (
-    <main className="sans-serif">
-      <Head />
+    <main>
       <Navigation />
       <section className="w-100 center mw7 mh4">
         <ItemMeta {...data} />

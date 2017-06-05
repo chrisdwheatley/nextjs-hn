@@ -1,12 +1,10 @@
 import React from "react";
 import Link from "next/link";
 import { get } from "../app/fetch";
-import Head from "../components/head";
 import Navigation from "../components/navigation";
 
 const User = ({ data: { about, created, id, karma } }) => (
-  <main className="sans-serif">
-    <Head />
+  <main>
     <Navigation />
     <section className="center mw7 mh4 pa2 pa3-ns lh-title">
       <div className="dt w-100 pv1">

@@ -9,6 +9,7 @@ module.exports = {
     config.plugins.push(
       new SWPrecacheWebpackPlugin({
         minify: true,
+        verbose: true,
         staticFileGlobsIgnorePatterns: [/\.next\//],
         staticFileGlobs: ["static/**/*"],
         runtimeCaching: [

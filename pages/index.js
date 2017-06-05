@@ -1,6 +1,5 @@
 import React from "react";
 import { get } from "../app/fetch";
-import Head from "../components/head";
 import ItemMeta from "../components/item-meta";
 import Navigation from "../components/navigation";
 
@@ -28,8 +27,7 @@ export default class extends React.Component {
 
   render() {
     return (
-      <main className="sans-serif">
-        <Head />
+      <main>
         <Navigation current={this.props.type} />
         <section className="w-100 center mw7 mh4">
           {this.props.data.map((item, index) => (

@@ -7,23 +7,20 @@ export default ({ current }) => {
   return (
     <section className="center bg-near-black mh4">
       <nav className="mw7 center">
-        <Link
-          prefetch
-          route="top"
-        >
-          <a className="near-white link f6 f4-ns dib pl2 pr1 ph3-ns pv4 fw5">
+        <Link prefetch route="top">
+          <a className="near-white link f6 f4-ns dib pl2 pr1 ph3-ns pv3 fw5">
             Next.js HN
           </a>
         </Link>
         {navItems.map(item => {
-          const isHome = item === "top";
+          const isTopStories = item === "top";
 
           return (
             <Link
               key={item}
               prefetch
-              route={isHome ? "top" : "index"}
-              params={isHome ? {} : { type: item }}
+              route={isTopStories ? "top" : "index"}
+              params={isTopStories ? {} : { type: item }}
             >
               <a
                 className={

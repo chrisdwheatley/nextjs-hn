@@ -13,30 +13,31 @@ export default (
           {time_ago} {user && <span>by {user} ({points} points)</span>}
         </div>
       </a>
-      {user && <Link prefetch route="comments" params={{ id }}>
-        <a className="dtc center link grow v-mid pr1 pr3-ns w-10">
-          <svg
-            className="fr pr2"
-            xmlns="http://www.w3.org/2000/svg"
-            width="25"
-            viewBox="0 0 25 25"
-            transform="scale(1.75)"
-          >
-            <path
-              d="M22 3v13h-11.643l-4.357 3.105v-3.105h-4v-13h20zm2-2h-24v16.981h4v5.019l7-5.019h13v-16.981z"
-            />
-            <text
-              x="12"
-              y="10"
-              textAnchor="middle"
-              fontSize="8"
-              alignmentBaseline="central"
+      {user &&
+        <Link prefetch route="comments" params={{ id }}>
+          <a className="dtc center link grow v-mid pr1 pr3-ns w-10">
+            <svg
+              className="fr pr2"
+              xmlns="http://www.w3.org/2000/svg"
+              width="25"
+              viewBox="0 0 25 25"
+              transform="scale(1.75)"
             >
-              {comments_count}
-            </text>
-          </svg>
-        </a>
-      </Link>}
+              <path
+                d="M22 3v13h-11.643l-4.357 3.105v-3.105h-4v-13h20zm2-2h-24v16.981h4v5.019l7-5.019h13v-16.981z"
+              />
+              <text
+                x="12"
+                y="10"
+                textAnchor="middle"
+                fontSize="8"
+                alignmentBaseline="central"
+              >
+                {comments_count}
+              </text>
+            </svg>
+          </a>
+        </Link>}
     </div>
   </article>
 );

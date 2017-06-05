@@ -21,9 +21,7 @@ function staticHandler(req, res) {
   if (parsedUrl.pathname === "/favicon.ico") {
     const filePath = join(__dirname, "static", parsedUrl.pathname);
     app.serveStatic(req, res, filePath);
-  }
-
-  if (rootStaticFiles.includes(parsedUrl.pathname)) {
+  } else if (rootStaticFiles.includes(parsedUrl.pathname)) {
     const filePath = join(__dirname, ".next", parsedUrl.pathname);
     app.serveStatic(req, res, filePath);
   } else {
