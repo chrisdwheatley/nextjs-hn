@@ -8,11 +8,10 @@ export default ({ current }) => {
     <section className="center bg-near-black mh4">
       <nav className="mw7 center">
         <Link
-          key="home"
           prefetch
           route="home"
         >
-          <a className="near-white dim link f6 f4-ns dib pl2 pr1 ph3-ns pv4 fw5">
+          <a className="near-white link f6 f4-ns dib pl2 pr1 ph3-ns pv4 fw5">
             Next.js HN
           </a>
         </Link>
