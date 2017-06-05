@@ -1,5 +1,11 @@
 import { Link } from "../routes";
-import GitHubRibbon from "../components/github-ribbon";
+import GitHubRibbon from "../static/github-ribbon.svg";
+import NProgress from "nprogress";
+import Router from "next/router";
+
+Router.onRouteChangeStart = () => NProgress.start();
+Router.onRouteChangeComplete = () => NProgress.done();
+Router.onRouteChangeError = () => NProgress.done();
 
 const navItems = ["top", "new", "show", "ask", "jobs"];
 
@@ -33,7 +39,13 @@ export default ({ current }) => {
           );
         })}
       </nav>
-      <GitHubRibbon link="https://github.com/chrisdwheatley/nextjs-hn-pwa" />
+      <a
+        href="https://github.com/chrisdwheatley/nextjs-hn-pwa"
+        className="github-corner link white"
+        aria-label="View source on Github"
+      >
+        <GitHubRibbon />
+      </a>
     </section>
   );
 };
