@@ -3,30 +3,53 @@ import { CSSTransitionGroup } from "react-transition-group";
 
 export default (
   { domain, url, title, user, points, time_ago, id, comments_count }
-) => (
-  <CSSTransitionGroup
-    transitionName="page-transition"
-    transitionAppear={true}
-    transitionAppearTimeout={500}
-    transitionEnter={false}
-    transitionLeave={false}
-  >
+) => {
+  let internalUrl;
+  if (url.substring(0, 8) === "item?id=") {
+    internalUrl = url.split("=").pop();
+  }
+
+  return (
     <article>
       <div className="dt w-100 bb b--black-10">
-        <a
-          className="link dtc dim pt2 pl2 pl3-ns w-50 w-65-m w-90-l"
-          href={url}
-        >
-          <h2 className="f4 f3-ns f2-l fw4 lh-title mv0 black baskerville">
-            {title}
-          </h2>
-          <div className="mt2 mb3 f7 f6-ns fw4 mb0 black-60">
-            {time_ago} {user && <span>by {user} ({points} points)</span>}
+        <div className="dtc pt2 pl2 pl3-ns w-50 w-65-m w-90-l">
+          {internalUrl &&
+            <Link prefetch route="comments" params={{ id: internalUrl }}>
+              <a
+                className="link dim f4 f3-ns f2-l fw3 lh-solid mv0 black baskerville"
+              >
+                {title}
+                {" "}
+                {domain &&
+                  <span className="f7 f6-ns f5-l fw3 black-60 sans-serif">
+                    ({domain})
+                  </span>}
+              </a>
+            </Link>}
+          {!internalUrl &&
+            <a
+              className="link dim f4 f3-ns f2-l fw3 lh-solid mv0 black baskerville"
+              href={url}
+            >
+              {title}
+              {" "}
+              {domain &&
+                <span className="fw2 f7 f6-ns f3-l black-60 sans-serif">
+                  ({domain})
+                </span>}
+            </a>}
+          <div className="mt2 mb3 f7 f6-ns fw3 mb0 black-60">
+            {time_ago} {user &&
+              <span>
+                by <Link route="user" params={{ name: user || "pg" }}>
+                  <a className="link grow black-60">{user}</a>
+                </Link> ({points} points)
+              </span>}
           </div>
-        </a>
+        </div>
         {user &&
           <Link prefetch route="comments" params={{ id }}>
-            <a className="dtc center link grow v-mid pr1 pr3-ns w-10">
+            <a className="dtc center link v-mid pr1 pr3-ns w-10 grow">
               <svg
                 className="fr pr2"
                 xmlns="http://www.w3.org/2000/svg"
@@ -51,5 +74,5 @@ export default (
           </Link>}
       </div>
     </article>
-  </CSSTransitionGroup>
-);
+  );
+};

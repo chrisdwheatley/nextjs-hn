@@ -11,9 +11,9 @@ function commentThread(comments) {
         className="bb b--black-10 mb3"
       >
         <li>
-          <span className="mt3 f6 fw4 mb0 black-60">
+          <span className="mt3 f6 fw3 mb0 black-60">
             <Link route="user" params={{ name: user || "pg" }}>
-              <a className="link dim pv1 pr1 black-60">{user}</a>
+              <a className="link grow black-60">{user}</a>
             </Link>
             {" "}
             {time_ago}

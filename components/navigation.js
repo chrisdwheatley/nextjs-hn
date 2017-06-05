@@ -30,7 +30,7 @@ export default ({ current }) => {
             >
               <a
                 className={
-                  `${current === item ? "pink" : "near-white dim"} link f7 f5-ns dib ph1 ph2-ns pv4 fw3`
+                  `${current === item ? "pink" : "near-white grow"} link f7 f5-ns dib ph1 ph2-ns pv4 fw3`
                 }
               >
                 {item.charAt(0).toUpperCase() + item.slice(1)}
