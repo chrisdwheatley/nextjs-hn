@@ -8,7 +8,7 @@ export default class extends React.Component {
   static async getInitialProps({ query: { type = "news" } }) {
     const json = await get({ type });
     if (type === "news") {
-      type = "home";
+      type = "top";
     }
     return { data: json, type };
   }

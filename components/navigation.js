@@ -1,7 +1,7 @@
 import { Link } from "../routes";
 import GitHubRibbon from "../components/github-ribbon";
 
-const navItems = ["home", "new", "show", "ask", "jobs"];
+const navItems = ["top", "new", "show", "ask", "jobs"];
 
 export default ({ current }) => {
   return (
@@ -9,20 +9,20 @@ export default ({ current }) => {
       <nav className="mw7 center">
         <Link
           prefetch
-          route="home"
+          route="top"
         >
           <a className="near-white link f6 f4-ns dib pl2 pr1 ph3-ns pv4 fw5">
             Next.js HN
           </a>
         </Link>
         {navItems.map(item => {
-          const isHome = item === "home";
+          const isHome = item === "top";
 
           return (
             <Link
               key={item}
               prefetch
-              route={isHome ? "home" : "index"}
+              route={isHome ? "top" : "index"}
               params={isHome ? {} : { type: item }}
             >
               <a
