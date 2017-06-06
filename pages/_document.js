@@ -17,7 +17,7 @@ export default class Document extends NextDocument {
           />
           <meta name="theme-color" content="#ff80cc" />
           <link rel="manifest" href="/static/manifest.json" />
-          <style jsx>
+          <style global jsx>
             {
               `
             @import 'tachyons/css/tachyons.min.pure';
