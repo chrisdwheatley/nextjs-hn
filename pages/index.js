@@ -33,7 +33,7 @@ export default class extends React.PureComponent {
         <Navigation current={type} />
         <PageSelector current={page} type={type} />
         <section className="w-100 center mw7 mh4">
-          {data.map((item, index) => <ItemMeta key={item.id} {...item} />)}
+          {data.length ? data.map((item, index) => <ItemMeta key={item.id} {...item} />) : <div className="f4 fw3 tc pv5">No further items.</div>}
         </section>
       </main>
     );

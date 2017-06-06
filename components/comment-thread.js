@@ -28,6 +28,7 @@ function commentThread(comments) {
             `
           p {
             margin-top: 0;
+            overflow-x: hidden;
           }
           p a, p a:visited {
             opacity: 1;
@@ -41,6 +42,9 @@ function commentThread(comments) {
           p a:hover, p a:focus {
             opacity: .5;
             transition: opacity .15s ease-in;
+          }
+          pre {
+            overflow-x: hidden;
           }
         `
           }
@@ -62,7 +66,7 @@ export default ({ comments }) => {
     <ul className="list pl2 pl3-ns mr3">
       {userComments.length
         ? userComments
-        : <span className="f5">No comments.</span>}
+        : <div className="f4 fw3 tc pv5">No comments.</div>}
     </ul>
   );
 };

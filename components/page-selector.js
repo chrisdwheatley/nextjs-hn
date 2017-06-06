@@ -2,8 +2,8 @@ import { Link } from "../routes";
 import ChevronLeft from "../static/chevron-l.svg";
 import ChevronRight from "../static/chevron-r.svg";
 
-function getRouteOptions(prev, firstPage, secondPage, type) {
-  if (firstPage && type !== "top") {
+function getRouteOptions(prev, secondPage, type) {
+  if (secondPage && type !== "top") {
     return {
       type: "first",
       params: {
@@ -34,7 +34,7 @@ export default ({ current, type }) => {
 
   const firstPage = next === 2;
   const secondPage = next === 3;
-  const routeOptions = getRouteOptions(prev, firstPage, secondPage, type);
+  const routeOptions = getRouteOptions(prev, secondPage, type);
 
   return (
     <section className="center bg-near-white mh4 fw3">
@@ -49,7 +49,7 @@ export default ({ current, type }) => {
             </a>
           </Link>) ||
           <div
-            className="f7 f6-ns no-underline light-silver inline-flex items-center pa2 pa3-ns"
+            className="f7 f6-ns no-underline silver inline-flex items-center pa2 pa3-ns"
           >
             <ChevronLeft />
             <span className="pl1 animate">Previous</span>
