@@ -1,8 +1,7 @@
-import dynamic from "next/dynamic";
 import React from "react";
 import { get } from "../app/fetch";
 import Navigation from "../components/navigation";
-const UserDetails = dynamic(import("../components/user-details"));
+import UserDetails from "../components/user-details";
 
 const User = ({ data }) => (
   <main>
