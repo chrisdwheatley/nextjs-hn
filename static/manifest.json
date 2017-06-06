@@ -1,6 +1,6 @@
 {
-  "name": "nextjs-hn-pwa",
-  "short_name": "nextjshnpwa",
+  "name": "nextjs-hn",
+  "short_name": "nextjs-hn",
   "description": "A Hacker News Progressive Web App built using Next.js",
   "icons": [
     {

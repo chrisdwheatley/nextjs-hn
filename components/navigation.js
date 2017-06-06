@@ -42,7 +42,7 @@ export default ({ current }) => {
         })}
       </nav>
       <a
-        href="https://github.com/chrisdwheatley/nextjs-hn-pwa"
+        href="https://github.com/chrisdwheatley/nextjs-hn"
         className="github-corner link white"
         aria-label="View source on Github"
       >
