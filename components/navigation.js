@@ -32,10 +32,10 @@ export default ({ current }) => {
             >
               <a
                 className={
-                  `${current === item ? "pink" : "near-white grow hover-pink"} link f7 f5-ns dib ph1 ph2-ns pv4 fw3`
+                  `${current === item ? "pink" : "near-white grow hover-pink"} ttc link f7 f5-ns dib ph1 ph2-ns pv4 fw3`
                 }
               >
-                {item.charAt(0).toUpperCase() + item.slice(1)}
+                {item}
               </a>
             </Link>
           );
@@ -125,6 +125,9 @@ export default ({ current }) => {
           box-shadow: 0 0 10px #ff80cc, 0 0 5px #ff80cc;
           opacity: 1.0;
           transform: rotate(3deg) translate(0px, -4px);
+        }
+        .tc {
+          text-align: center;
         }
         `
         }
