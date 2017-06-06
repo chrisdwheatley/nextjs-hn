@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 export default ({ about, created, id, karma }) => (
   <section className="center mw7 mh4 pa2 pa3-ns lh-solid">
     <div className="dt w-100 pv1">

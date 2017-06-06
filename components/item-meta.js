@@ -16,7 +16,7 @@ export default (
           {internalUrl &&
             <Link prefetch route="comments" params={{ id: internalUrl }}>
               <a
-                className="link dim f4 f3-ns f2-l fw3 lh-solid mv0 black baskerville"
+                className="link dim f4 f3-ns f2-l fw3 lh-solid mv0 near-black baskerville"
               >
                 {title}
                 {" "}
@@ -28,7 +28,7 @@ export default (
             </Link>}
           {!internalUrl &&
             <a
-              className="link dim f4 f3-ns f2-l fw3 lh-solid mv0 black baskerville"
+              className="link dim f4 f3-ns f2-l fw3 lh-solid mv0 near-black baskerville"
               href={url}
             >
               {title}
@@ -49,7 +49,9 @@ export default (
         </div>
         {user &&
           <Link prefetch route="comments" params={{ id }}>
-            <a className="dtc center link v-mid pr1 pr3-ns w-10 grow">
+            <a
+              className="dtc center link v-mid pr1 pr3-ns w-10 grow near-black"
+            >
               <svg
                 className="fr pr2"
                 xmlns="http://www.w3.org/2000/svg"

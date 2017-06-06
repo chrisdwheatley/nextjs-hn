@@ -17,6 +17,7 @@ export default class Document extends NextDocument {
           />
           <meta name="theme-color" content="#ff80cc" />
           <link rel="manifest" href="/static/manifest.json" />
+          <link rel="dns-prefetch" href="//node-hnapi.herokuapp.com" />
         </Head>
         <body className="sans-serif">
           <Main />

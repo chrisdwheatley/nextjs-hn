@@ -15,15 +15,19 @@ function set(key, value) {
   cache.set(key, value);
 }
 
-export async function get({ type = "news", id, name }) {
+export async function get({ type = "news", id, name, page = "1" }) {
   const allowed = ["news", "new", "show", "ask", "jobs"];
 
   if (type === "new") {
     type = "newest";
   }
 
-  const endpointBase = `https://api.hackerwebapp.com/`;
-  let endpointPath = type;
+  if (type === "top") {
+    type = "news";
+  }
+
+  const endpointBase = `https://node-hnapi.herokuapp.com/`;
+  let endpointPath = `${type}?page=${page}`;
 
   if (id) {
     endpointPath = `item/${id}`;

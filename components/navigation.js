@@ -14,7 +14,9 @@ export default ({ current }) => {
     <section className="center bg-near-black mh4">
       <nav className="mw7 center">
         <Link prefetch route="top">
-          <a className="near-white link f6 f4-ns dib pl2 pr1 ph3-ns pv3 fw5">
+          <a
+            className="near-white link hover-pink f6 f4-ns dib pl2 pr1 ph3-ns pv3 fw5"
+          >
             Next.js HN
           </a>
         </Link>
@@ -25,12 +27,12 @@ export default ({ current }) => {
             <Link
               key={item}
               prefetch
-              route={isTopStories ? "top" : "index"}
+              route={isTopStories ? "top" : "first"}
               params={isTopStories ? {} : { type: item }}
             >
               <a
                 className={
-                  `${current === item ? "pink" : "near-white grow"} link f7 f5-ns dib ph1 ph2-ns pv4 fw3`
+                  `${current === item ? "pink" : "near-white grow hover-pink"} link f7 f5-ns dib ph1 ph2-ns pv4 fw3`
                 }
               >
                 {item.charAt(0).toUpperCase() + item.slice(1)}
@@ -50,7 +52,7 @@ export default ({ current }) => {
         {
           `
         @import 'tachyons/css/tachyons.min.pure';
-      `
+          `
         }
       </style>
       <style global jsx>

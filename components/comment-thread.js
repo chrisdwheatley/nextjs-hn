@@ -56,6 +56,13 @@ function commentThread(comments) {
   return thread;
 }
 
-export default ({ comments }) => (
-  <ul className="list pl2 pl3-ns mr3">{commentThread(comments)}</ul>
-);
+export default ({ comments }) => {
+  const userComments = commentThread(comments);
+  return (
+    <ul className="list pl2 pl3-ns mr3">
+      {userComments.length
+        ? userComments
+        : <span className="f5">No comments.</span>}
+    </ul>
+  );
+};
