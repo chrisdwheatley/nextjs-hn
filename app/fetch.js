@@ -22,7 +22,7 @@ export async function get({ type = "news", id, name }) {
     type = "newest";
   }
 
-  const endpointBase = `https://node-hnapi.herokuapp.com/`;
+  const endpointBase = `https://api.hackerwebapp.com/`;
   let endpointPath = type;
 
   if (id) {
