@@ -37,27 +37,27 @@ export default ({ current, type }) => {
   const routeOptions = getRouteOptions(prev, secondPage, type);
 
   return (
-    <section className="center bg-near-white mh4 fw3">
+    <section className="center bg-near-white mh4">
       <div className="flex items-center justify-center">
         {(!firstPage &&
           <Link route={routeOptions.type} params={routeOptions.params}>
             <a
-              className="f7 f6-ns no-underline near-black inline-flex items-center pa2 pa3-ns link grow"
+              className="f7 f6-ns no-underline black inline-flex items-center pa2 pa3-ns link grow"
             >
               <ChevronLeft />
-              <span className="pl1 animate">Previous</span>
+              <span className="pl1">Previous</span>
             </a>
           </Link>) ||
           <div
-            className="f7 f6-ns no-underline silver inline-flex items-center pa2 pa3-ns"
+            className="f7 f6-ns no-underline gray inline-flex items-center pa2 pa3-ns fw3"
           >
             <ChevronLeft />
-            <span className="pl1 animate">Previous</span>
+            <span className="pl1">Previous</span>
           </div>}
-        <span className="f7 f6-ns mh2">Page {current}</span>
+        <span className="f7 f6-ns mh2 fw4">Page {current}</span>
         <Link prefetch route="index" params={{ type, page: next }}>
           <a
-            className="f7 f6-ns no-underline near-black hover-near-black inline-flex items-center pa2 pa3-ns link grow"
+            className="f7 f6-ns no-underline black inline-flex items-center pa2 pa3-ns link grow"
           >
             <span className="pr1">Next</span>
             <ChevronRight />
