@@ -1,5 +1,4 @@
 import { Link } from "../routes";
-import { CSSTransitionGroup } from "react-transition-group";
 
 export default (
   { domain, url, title, user, points, time_ago, id, comments_count }

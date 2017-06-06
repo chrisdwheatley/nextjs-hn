@@ -1,7 +1,7 @@
+import Router from "next/router";
+import NProgress from "nprogress";
 import { Link } from "../routes";
 import GitHubRibbon from "../static/github-ribbon.svg";
-import NProgress from "nprogress";
-import Router from "next/router";
 
 Router.onRouteChangeStart = () => NProgress.start();
 Router.onRouteChangeComplete = () => NProgress.done();
@@ -42,7 +42,7 @@ export default ({ current }) => {
         })}
       </nav>
       <a
-        href="https://github.com/chrisdwheatley/nextjs-hn-pwa"
+        href="https://github.com/chrisdwheatley/nextjs-hn"
         className="github-corner link white"
         aria-label="View source on Github"
       >

@@ -49,7 +49,7 @@ export default ({ current, type }) => {
             </a>
           </Link>) ||
           <div
-            className="f7 f6-ns no-underline gray inline-flex items-center pa2 pa3-ns fw3"
+            className="f7 f6-ns no-underline dark-gray inline-flex items-center pa2 pa3-ns"
           >
             <ChevronLeft />
             <span className="pl1">Previous</span>
