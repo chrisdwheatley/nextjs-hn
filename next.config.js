@@ -11,7 +11,6 @@ module.exports = {
         minify: true,
         verbose: true,
         staticFileGlobsIgnorePatterns: [/\.next\//],
-        staticFileGlobs: ["static/**/*"],
         runtimeCaching: [
           {
             handler: "networkFirst",
