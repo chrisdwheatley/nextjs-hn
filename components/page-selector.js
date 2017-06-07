@@ -1,6 +1,6 @@
 import { Link } from "../routes";
-import ChevronLeft from "../static/chevron-l.svg";
-import ChevronRight from "../static/chevron-r.svg";
+import ChevronLeft from "../assets/chevron-l.svg";
+import ChevronRight from "../assets/chevron-r.svg";
 
 function getRouteOptions(prev, secondPage, type) {
   if (secondPage && type !== "top") {

@@ -4,9 +4,9 @@ A Hacker News Progressive Web App built using Next.js
 
 ## Features
 
-* Server-rendered React with Next.js
-* Aliases React to Preact in production for smaller bundle size
-* Service worker support with sw-precache
+* Server-rendered [React](https://facebook.github.io/react/) with [Next.js](https://github.com/zeit/next.js/)
+* Aliases React to [Preact](https://preactjs.com/) in production for a smaller bundle size
+* Service worker support with [sw-precache](https://github.com/GoogleChrome/sw-precache)
 * 100/100 Lighthouse score
 * Server side in memory LRU cache to improve time to first byte
 * DNS prefetching for client side API requests

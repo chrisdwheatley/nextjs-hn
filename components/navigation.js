@@ -1,7 +1,7 @@
 import Router from "next/router";
 import NProgress from "nprogress";
 import { Link } from "../routes";
-import GitHubRibbon from "../static/github-ribbon.svg";
+import GitHubRibbon from "../assets/github-ribbon.svg";
 
 Router.onRouteChangeStart = () => NProgress.start();
 Router.onRouteChangeComplete = () => NProgress.done();
